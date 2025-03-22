@@ -1,127 +1,155 @@
-{% extends "base.html" %}
-{% block title %}About - Plant Disease Recognition{% endblock %}
-{% block content %}
+{% extends "base.html" %} {% block title %}About - Plant Disease Recognition{%
+endblock %} {% block content %}
 
 <style>
-    /* Scoped to content only, avoiding navbar */
-    .about-container {
-        background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-        border-radius: 15px;
-        padding: 30px;
-        margin: 50px auto;
-        max-width: 800px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        font-family: 'Arial', sans-serif;
-        text-align: center; /* Center-align content */
-    }
-    .about-container h1 {
-        color: #2e7d32; /* Green for a natural feel */
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    .about-container h3 {
-        color: #388e3c;
-        margin-top: 20px;
-    }
-    .about-container p {
-        font-size: 1.1em;
-        line-height: 1.6;
-        color: #424242;
-        text-align: left; /* Keep text left-aligned for readability */
-    }
-    .about-container ul {
-        list-style-type: none;
-        padding-left: 0;
-        text-align: left; /* Keep list left-aligned */
-    }
-    .about-container ul li {
-        background: #e8f5e9; /* Light green background */
-        margin: 10px 0;
-        padding: 10px;
-        border-radius: 8px;
-        font-size: 1.1em;
-        color: #2e7d32;
-    }
-    .about-container ul li:before {
-        content: "🌱 "; /* Plant emoji */
-    }
-    .about-img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        margin: 0 auto 20px auto; /* Center the image */
-        display: block; /* Ensure centering works */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .about-btn {
-        background-color: #388e3c;
-        border-color: #388e3c;
-        padding: 10px 20px;
-        font-size: 1.1em;
-        transition: background-color 0.3s;
-    }
-    .about-btn:hover {
-        background-color: #2e7d32;
-        border-color: #2e7d32;
-    }
-    .highlight {
-        color: #f57f17; /* Orange for emphasis */
-        font-weight: bold;
-    }
-    /* Ensure background covers full viewport */
-    .background-wrapper {
-        background-image: url('{{ url_for('static', filename='uploads/img1.jpg') }}');
-        background-size :cover;
-        background-position:center;
-        background-repeat:no-repeat;
-        min-height:100vh; /* Full viewport height */
-        width:100vw ; /* Full viewport width */
-        position:fixed; /* Fixed to cover entire screen */
-        top: 0;
-        left: 0;
-        z-index: -1; /* Behind content */
-    }   
-    /* Ensure content stays above background */
-    .about-container {
-        position: relative;
-        z-index: 1;
-    }
+  html,
+  body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+  }
+
+  .about-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border-radius: 15px;
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-container h1 {
+    color: #2e7d32;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .about-container h3 {
+    color: #388e3c;
+    margin-top: 20px;
+  }
+
+  .about-container p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #424242;
+    text-align: left;
+  }
+
+  .about-container ul {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+  }
+
+  .about-container ul li {
+    background: #e8f5e9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    color: #2e7d32;
+  }
+
+  .about-container ul li:before {
+    content: "🌱 ";
+  }
+
+  .about-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0 auto 20px auto;
+    display: block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .about-btn {
+    background-color: #388e3c;
+    border-color: #388e3c;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .about-btn:hover {
+    background-color: #2e7d32;
+    border-color: #2e7d32;
+  }
+
+  .highlight {
+    color: #f57f17;
+    font-weight: bold;
+  }
+
+  .background-wrapper {
+    background-image: url("/static/uploads/img1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute; /* changed from fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
 </style>
 
 <div class="background-wrapper"></div>
+
 <div class="about-container">
-    <img src="{{ url_for('static', filename='uploads/img3.jpg') }}" alt="Healthy Plant Image" class="about-img">
+  <img
+    src="{{ url_for('static', filename='uploads/img3.jpg') }}"
+    alt="Healthy Plant Image"
+    class="about-img"
+  />
 
-    <h1>About Our Plant Disease Recognition Project</h1>
-    <p>
-        Welcome to a <span class="highlight">greener future</span>! This project harnesses the power of cutting-edge 
-        deep learning to identify plant diseases quickly and accurately from images. We’re here to empower 
-        <span class="highlight">farmers, gardeners, and agricultural experts</span> with the tools they need to 
-        protect their crops and boost yields.
-    </p>
-    <p>
-        Our AI model has been trained on a vast dataset of thousands of plant images, covering a wide range of diseases 
-        and healthy plants. We’re passionate about continuous improvement, constantly refining our technology to deliver 
-        <span class="highlight">reliable, real-time solutions</span> for sustainable agriculture.
-    </p>
+  <h1>About Our Plant Disease Recognition Project</h1>
+  <p>
+    Welcome to a <span class="highlight">greener future</span>! This project
+    harnesses the power of cutting-edge deep learning to identify plant diseases
+    quickly and accurately from images. We’re here to empower
+    <span class="highlight">farmers, gardeners, and agricultural experts</span>
+    with the tools they need to protect their crops and boost yields.
+  </p>
+  <p>
+    Our AI model has been trained on a vast dataset of thousands of plant
+    images, covering a wide range of diseases and healthy plants. We’re
+    passionate about continuous improvement, constantly refining our technology
+    to deliver <span class="highlight">reliable, real-time solutions</span> for
+    sustainable agriculture.
+  </p>
 
-    <h3>Why We Stand Out</h3>
-    <ul>
-        <li>Pinpoint-accurate disease detection with advanced AI</li>
-        <li>A simple, intuitive interface for effortless image uploads</li>
-        <li>Instant analysis with actionable feedback</li>
-        <li>A vibrant community to share knowledge and grow together</li>
-    </ul>
+  <h3>Why We Stand Out</h3>
+  <ul>
+    <li>Pinpoint-accurate disease detection with advanced AI</li>
+    <li>A simple, intuitive interface for effortless image uploads</li>
+    <li>Instant analysis with actionable feedback</li>
+    <li>A vibrant community to share knowledge and grow together</li>
+  </ul>
 
-    <p>
-        Our vision is to transform farming with <span class="highlight">smart, data-driven insights</span>. Whether you’re 
-        tending a small garden or managing a large farm, we’re excited to support you on this journey toward healthier 
-        plants and a thriving planet. Let’s cultivate success—together!
-    </p>
+  <p>
+    Our vision is to transform farming with
+    <span class="highlight">smart, data-driven insights</span>. Whether you’re
+    tending a small garden or managing a large farm, we’re excited to support
+    you on this journey toward healthier plants and a thriving planet. Let’s
+    cultivate success—together!
+  </p>
 
-    <div class="text-center">
-        <a href="/" class="btn about-btn mt-3">Back to Home</a>
-    </div>
+  <div class="text-center">
+    <a href="/" class="about-btn mt-3">Back to Home</a>
+  </div>
 </div>
 
 {% endblock %}
