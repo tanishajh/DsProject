@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SHAP Explanation</title>
+</head>
+<body>
+    <h1>Model Prediction Explanation</h1>
+    <p>Original Image:</p>
+    <img src="{{ url_for('static', filename='uploads/' + user_image) }}" width="300">
+
+    <p>SHAP Explanation:</p>
+    <img src="{{ url_for('static', filename='uploads/' + shap_image) }}" width="400">
+
+    <br>
+    <a href="{{ url_for('upload_and_explain') }}">Upload Another Image</a>
+</body>
+</html>

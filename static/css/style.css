@@ -1,0 +1,27 @@
+.community-bg {
+    background: url("C:/Dhruv/plant_disease_flask_app/static/uploads/img3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;  /* Make it full height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Ensure text is readable */
+    text-shadow: 2px 2px 2px rgba(1, 1, 0, 0.8);
+}
+
+.process-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.step img {
+    display: block;
+    margin: 0 auto;
+}
+
+.step p {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
